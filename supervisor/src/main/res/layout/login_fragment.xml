@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.zedan.acare.supervisor.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/acare"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline4"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/guide_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/black" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/language_desc_login"
+            android:layout_marginTop="@dimen/x_large"
+            android:padding="@dimen/medium"
+            android:textColor="@color/azul"
+            android:background="?selectableItemBackground"
+            android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guide_top"
+            app:layout_constraintBottom_toTopOf="@id/title_login"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias="0"
+            />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            android:layout_marginTop="@dimen/soft"
+            android:text="@string/sign_in"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline6"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_language"
+            app:layout_constraintBottom_toTopOf="@id/hint_email"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/xx_large"
+            android:layout_marginTop="@dimen/xxx_large"
+            android:text="@string/hint_email_address"
+            android:textColor="@color/dusky_blue"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_login"
+            app:layout_constraintBottom_toTopOf="@id/layout_email"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_email"
+            style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/large"
+            android:layout_marginTop="@dimen/soft"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hint_email"
+            app:layout_constraintBottom_toTopOf="@id/hint_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/xx_large"
+            android:layout_marginTop="@dimen/medium"
+            android:text="@string/hint_password"
+            android:textColor="@color/dusky_blue"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/layout_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_email" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_password"
+            style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/large"
+            android:layout_marginTop="@dimen/soft"
+            app:layout_constrainedHeight="true"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hint_password"
+            app:layout_constraintBottom_toTopOf="@id/forget_password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constrainedHeight="true"
+            android:text="@string/forget_your_password"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="@dimen/xxx_large"
+            android:layout_marginTop="@dimen/small"
+            android:padding="@dimen/mini_soft"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> viewModel.forgetPassword()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_password"
+            app:layout_constraintBottom_toTopOf="@id/login_btn"
+            app:layout_constraintHorizontal_bias="0"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            app:layout_constrainedHeight="true"
+            android:onClick="@{() -> viewModel.login(inputEmail.getText().toString().trim(), inputPassword.getText().toString().trim())}"
+            android:layout_marginTop="@dimen/xxx_large"
+            android:layout_marginHorizontal="@dimen/large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/forget_password"
+            app:layout_constraintBottom_toTopOf="@id/flow_do_not_have_account"
+            />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow_do_not_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constrainedHeight="true"
+            app:constraint_referenced_ids="do_not_txt, sign_up"
+            android:orientation="horizontal"
+            app:flow_verticalGap="@dimen/soft"
+            android:layout_marginTop="@dimen/xxx_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/do_not_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_not_have_account"
+            android:textColor="@color/black"
+            tools:ignore="MissingConstraints"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:textColor="@color/azul"
+            android:onClick="@{()-> viewModel.signUp()}"
+            android:background="?selectableItemBackgroundBorderless"
+            tools:ignore="MissingConstraints"
+            />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mini_soft">2dp</dimen>
+    <dimen name="soft">4dp</dimen>
+    <dimen name="mini_small">6dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="medium">12dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="x_large">20dp</dimen>
+    <dimen name="xx_large">28dp</dimen>
+    <dimen name="xxx_large">32dp</dimen>
+
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+</resources>

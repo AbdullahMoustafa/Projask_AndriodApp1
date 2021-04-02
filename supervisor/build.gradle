@@ -1,0 +1,89 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply {
+    from '../gradle/compileOptions.gradle'
+    from '../gradle/binding.gradle'
+    plugin "androidx.navigation.safeargs"
+    plugin 'kotlin-kapt'
+    plugin 'dagger.hilt.android.plugin'
+    plugin 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.zedan.acare.supervisor"
+        minSdkVersion rootProject.ext.defaultConfig.minSdkVersion
+        targetSdkVersion rootProject.ext.defaultConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner rootProject.ext.defaultConfig.testInstrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":common")
+
+    // Core
+    implementation rootProject.ext.core.impl
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation rootProject.ext.core.unit_test
+    androidTestImplementation rootProject.ext.core.android_test
+
+
+    // Design
+    implementation rootProject.ext.design.impl
+    //Recycler Selection
+    implementation 'androidx.recyclerview:recyclerview-selection:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    // Skip this if you don't want to use integration libraries or configure Glide.
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Navigation Component
+    implementation rootProject.ext.navigation.impl
+    androidTestImplementation rootProject.ext.navigation.android_test
+
+    // Lifecycle
+    implementation rootProject.ext.lifecycle.impl
+    testImplementation rootProject.ext.lifecycle.unit_test
+
+    // Work Manger
+    implementation rootProject.ext.work.impl
+    androidTestImplementation rootProject.ext.work.android_test
+
+
+    // Hilt
+    implementation rootProject.ext.hilt.impl
+    kapt rootProject.ext.hilt.kapt
+    compileOnly  rootProject.ext.hilt.compileOnly
+
+    //Retrofit
+    implementation rootProject.ext.remote.impl
+
+    // Utils
+    implementation rootProject.ext.utils.impl
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.7.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-storage'
+
+}

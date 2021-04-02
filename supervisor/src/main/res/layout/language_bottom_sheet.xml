@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/large"
+    android:paddingVertical="@dimen/x_large"
+    android:animateLayoutChanges="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.profile.language.LanguageBottomSheet">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_choose_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_language"
+        android:textAppearance="@style/TextAppearance.ACARE.Headline6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/english"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/english"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/english"
+        android:padding="@dimen/large"
+        android:textAlignment="viewStart"
+        android:layout_marginTop="@dimen/large"
+        app:drawableEndCompat="@drawable/ic_check_right"
+        app:drawableTint="@color/aqua_green"
+        android:background="?selectableItemBackground"
+        android:textAppearance="@style/TextAppearance.ACARE.Headline7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_choose_language"
+        app:layout_constraintBottom_toTopOf="@id/arabic"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/arabic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/arabic"
+        android:padding="@dimen/large"
+        android:textAlignment="viewStart"
+        app:drawableEndCompat="@drawable/ic_check_right"
+        app:drawableTint="@color/aqua_green"
+        android:background="?selectableItemBackground"
+        android:textAppearance="@style/TextAppearance.ACARE.Headline7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/english"
+        app:layout_constraintBottom_toTopOf="@id/apply_btn"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/apply_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large"
+        android:text="@string/apply"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arabic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

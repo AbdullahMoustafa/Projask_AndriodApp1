@@ -1,0 +1,122 @@
+ext {
+    
+    android = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3"
+    ]
+
+    defaultConfig = [
+            minSdkVersion            : 24,
+            targetSdkVersion         : 30,
+            testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner"
+    ]
+    
+
+    core = [
+            impl: [
+                    "androidx.core:core:1.3.2",
+                    "androidx.appcompat:appcompat:1.2.0"
+            ],
+
+            unit_test: [
+                    "junit:junit:4.13.2"
+            ],
+
+            android_test: [
+                    "androidx.test.ext:junit:1.1.2",
+                    "androidx.test.espresso:espresso-core:3.3.0"
+            ]
+    ]
+
+    design = [
+            impl: [
+                    "com.google.android.material:material:1.3.0",
+                    "androidx.constraintlayout:constraintlayout:2.0.4",
+                    "com.github.razir.progressbutton:progressbutton:2.1.0",
+                    "com.chaos.view:pinview:1.4.3"
+            ]
+    ]
+
+
+    def nav_version = "2.3.4"
+    def fragment_version = '1.2.5'
+    navigation = [
+            impl : [
+                    "androidx.navigation:navigation-fragment:$nav_version",
+                    "androidx.navigation:navigation-ui:$nav_version",
+                    "androidx.fragment:fragment:$fragment_version",
+                    "androidx.fragment:fragment:$fragment_version"
+            ],
+            android_test: [
+                    "androidx.navigation:navigation-testing:$nav_version"
+            ]
+    ]
+
+    def lifecycle_version = "2.3.0"
+    def arch_version = "2.1.0"
+    lifecycle = [
+            impl: [
+                    "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version",
+                    "androidx.lifecycle:lifecycle-livedata:$lifecycle_version",
+
+            ],
+            unit_test: [
+                    "androidx.arch.core:core-testing:$arch_version"
+            ]
+    ]
+
+    def work_version = "2.5.0"
+    work = [
+            impl: [
+                    "androidx.work:work-runtime:$work_version",
+                    "androidx.work:work-multiprocess:$work_version"
+            ],
+
+            android_test: [
+                    "androidx.work:work-testing:$work_version"
+            ]
+    ]
+
+    def hilt_version = '2.33-beta'
+    hilt = [
+            impl: [
+                    "com.google.dagger:hilt-android:$hilt_version",
+                    "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+            ],
+
+            kapt: [
+                    "com.google.dagger:hilt-compiler:$hilt_version",
+                    "androidx.hilt:hilt-compiler:1.0.0-alpha02",
+                    "com.squareup.inject:assisted-inject-processor-dagger2:0.6.0"
+            ],
+
+            compileOnly: [
+                    "com.squareup.inject:assisted-inject-annotations-dagger2:0.6.0"
+            ]
+    ]
+
+    //Retrofit
+    def retrofit_version = '2.9.0'
+    def moshi_version = '1.11.0'
+    remote = [
+            impl: [
+                    "com.squareup.retrofit2:retrofit:$retrofit_version",
+                    "com.squareup.retrofit2:converter-moshi:$retrofit_version",
+                    'com.squareup.okhttp3:okhttp:4.9.0',
+                    'com.squareup.okhttp3:logging-interceptor:4.9.0',
+                    "com.squareup.moshi:moshi:$moshi_version",
+                    "com.squareup.moshi:moshi-kotlin:$moshi_version"
+            ]
+    ]
+
+    utils = [
+            impl: [
+                    "com.jakewharton.timber:timber:4.7.1",
+                    "io.coil-kt:coil:1.0.0",
+                    "org.greenrobot:eventbus:3.2.0",
+                    "com.github.yalantis:ucrop:2.2.5",
+                    "com.github.dhaval2404:imagepicker:1.7.5",
+                    "com.github.florent37:inline-activity-result-kotlin:1.0.4"
+            ]
+    ]
+}

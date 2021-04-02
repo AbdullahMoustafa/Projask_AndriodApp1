@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/language_nav"
+    app:startDestination="@id/languageBottomSheet">
+
+    <dialog
+        android:id="@+id/languageBottomSheet"
+        android:name="com.zedan.acare.supervisor.ui.profile.language.LanguageBottomSheet"
+        android:label="language_bottom_sheet"
+        tools:layout="@layout/language_bottom_sheet" />
+</navigation>

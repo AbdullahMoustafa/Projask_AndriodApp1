@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.zedan.acare.supervisor.ui.register.RegisterNavigation" />
+
+        <variable
+            name="viewModel"
+            type="com.zedan.acare.supervisor.ui.register.RegisterViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.register.RegisterFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/app_name"
+                android:layout_width="0dp"
+                android:layout_height="133dp"
+                app:layout_constrainedHeight="true"
+                android:gravity="center"
+                android:text="@string/acare"
+                android:textAlignment="gravity"
+                android:textAppearance="@style/TextAppearance.ACARE.Headline4"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/txt_new_user"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:textColor="@color/black"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_new_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/new_user"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.ACARE.Headline6"
+                app:layout_constrainedWidth="true"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/app_name"
+                app:layout_constraintBottom_toTopOf="@id/txt_add_personal_photo"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_add_personal_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true"
+                app:layout_constrainedHeight="true"
+                android:text="@string/add_personal_photo"
+                android:textColor="@color/dusky_blue"
+                android:layout_marginTop="@dimen/large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_new_user"
+                app:layout_constraintBottom_toTopOf="@id/desc_add_personal_photo"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/desc_add_personal_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constrainedWidth="true"
+                app:layout_constrainedHeight="true"
+                android:text="@string/desc_add_personal_photo"
+                android:textColor="@color/dusky_blue"
+                android:textSize="@dimen/text_size_12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_add_personal_photo"
+                app:layout_constraintBottom_toTopOf="@id/ic_add_personal_photo"
+                />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ic_add_personal_photo"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:layout_constrainedWidth="true"
+                app:layout_constrainedHeight="true"
+                app:srcCompat="@drawable/ic_add_personal_photo"
+                android:scaleType="center"
+                android:layout_marginTop="@dimen/small"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.ACARE.Image.Circle"
+                android:onClick="@{()-> viewModel.navigationHandler(RegisterNavigation.PickImage)}"
+                android:background="?selectableItemBackgroundBorderless"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desc_add_personal_photo"
+                app:layout_constraintBottom_toTopOf="@id/hint_full_name"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/large"
+                android:text="@string/hint_full_name"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ic_add_personal_photo"
+                app:layout_constraintBottom_toTopOf="@id/layout_full_name"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_full_name"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_full_name"
+                app:layout_constraintBottom_toTopOf="@id/hint_mobile"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Ahmed Zedan"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_mobile"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_full_name"
+                app:layout_constraintBottom_toTopOf="@id/layout_mobile"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_mobile"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_mobile"
+                app:layout_constraintBottom_toTopOf="@id/hint_email"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="11"
+                    android:inputType="phone"
+                    android:text="01014443664"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_email_address"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_mobile"
+                app:layout_constraintBottom_toTopOf="@id/layout_email"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_email"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_email"
+                app:layout_constraintBottom_toTopOf="@id/hint_password"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:text="a.z.flefel@gmail.com"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_password"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/layout_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_password"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:passwordToggleEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_password"
+                app:layout_constraintBottom_toTopOf="@id/hint_kinship"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="123456789"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_kinship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_kinship"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_password"
+                app:layout_constraintBottom_toTopOf="@id/layout_kinship"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_kinship"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_kinship"
+                app:layout_constraintBottom_toTopOf="@id/hint_location"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_kinship"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="developer"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_home_location"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_kinship"
+                app:layout_constraintBottom_toTopOf="@id/layout_location"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_location"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_location"
+                app:layout_constraintBottom_toTopOf="@id/hint_country"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="Mansoura"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/hint_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/xx_large"
+                android:layout_marginTop="@dimen/medium"
+                android:text="@string/hint_country"
+                android:textColor="@color/dusky_blue"
+                app:layout_constrainedHeight="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_location"
+                app:layout_constraintBottom_toTopOf="@id/layout_country"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_country"
+                style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/soft"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hint_country"
+                app:layout_constraintBottom_toTopOf="@id/register_btn"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="Dakalihia"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/register_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constrainedHeight="true"
+                android:text="@string/register"
+                android:onClick="@{() -> viewModel.register(inputFullName.getText().toString().trim(), inputMobile.getText().toString().trim(), inputEmail.getText().toString().trim(), inputPassword.getText().toString().trim(), inputKinship.getText().toString().trim(), inputLocation.getText().toString().trim(), inputCountry.getText().toString().trim())}"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginHorizontal="@dimen/large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_country"
+                app:layout_constraintBottom_toTopOf="@id/flow_have_account"
+                />
+
+            <androidx.constraintlayout.helper.widget.Flow
+                android:id="@+id/flow_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/large"
+                android:layout_marginBottom="@dimen/xxx_large"
+                app:constraint_referenced_ids="have_account, login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/register_btn"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/have_account"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:onClick="@{()-> viewModel.navigationHandler(RegisterNavigation.Login)}"
+                android:textColor="@color/azul"
+                tools:ignore="MissingConstraints" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

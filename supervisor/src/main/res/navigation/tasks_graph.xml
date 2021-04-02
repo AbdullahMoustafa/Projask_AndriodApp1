@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tasks_graph"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.zedan.acare.supervisor.ui.tasks.TasksFragment"
+        android:label="tasks_fragment"
+        tools:layout="@layout/tasks_fragment" >
+        <action
+            android:id="@+id/action_tasksFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.zedan.acare.supervisor.ui.addTask.AddTaskFragment"
+        android:label="AddTaskFragment" />
+    <dialog
+        android:id="@+id/loadingDialog"
+        android:name="com.zedan.acare.supervisor.ui.loading.LoadingDialog"
+        android:label="loading_dialog"
+        tools:layout="@layout/loading_dialog" />
+    <include app:graph="@navigation/message_nav" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.zedan.acare.supervisor.ui.profile.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" >
+
+        <action
+            android:id="@+id/action_profileFragment_to_language_nav"
+            app:destination="@id/language_nav" />
+    </fragment>
+    <include app:graph="@navigation/language_nav" />
+
+</navigation>

@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.zedan.acare.supervisor.ui.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:visibility="@{viewModel.data != null ? View.VISIBLE : View.GONE}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ic_user"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            app:loadProfile="@{viewModel.supervisor.profileImage}"
+            app:layout_constraintBottom_toTopOf="@id/txt_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.ACARE.Image.Circle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium"
+            android:text="@{viewModel.supervisor.fullName}"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline6"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/desc_near_you"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/ic_user"
+            tools:text="احمد" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/desc_near_you"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/medium"
+            android:text="@string/desc_near_you"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline7"
+            app:layout_constraintBottom_toTopOf="@id/near_you"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_user" />
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/near_you"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="@dimen/small"
+            android:background="@drawable/bg_round_corner_small"
+            android:fontFamily="@font/tajawal_medium"
+            android:paddingStart="@dimen/small"
+            android:paddingEnd="0dp"
+            android:text="@string/near_you"
+            android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+            android:textColor="@color/dark_blue_grey"
+            app:layout_constraintBottom_toTopOf="@id/last_place"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/desc_near_you"
+            app:switchTextAppearance="@style/TextAppearance.ACARE.Subtitle1" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/last_place"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="@dimen/large"
+            android:background="@drawable/bg_round_corner_small"
+            android:gravity="center|start"
+            android:text="@string/last_place"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+            android:textColor="@color/dark_blue_grey"
+            app:drawableEndCompat="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toTopOf="@id/txt_your_data"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/near_you" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_your_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x_large"
+            android:paddingHorizontal="@dimen/medium"
+            android:text="@string/your_data"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline7"
+            app:layout_constraintBottom_toTopOf="@id/group_user_data"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/last_place" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/group_user_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:background="@drawable/bg_round_corner_small"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/txt_patient_data"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_your_data">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_mobile"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:text="@{viewModel.supervisor.phone}"
+                        android:textAlignment="viewStart"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="0123456789" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:orientation="horizontal"-->
+            <!--                        android:gravity="center"-->
+            <!--                        >-->
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:orientation="vertical"-->
+            <!--                            android:layout_marginVertical="@dimen/small"-->
+            <!--                            >-->
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:text="@string/hint_email_address"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/dusky_blue"-->
+            <!--                                />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="match_parent"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                tools:text="a.z.flefel@gmail.com"-->
+            <!--                                android:layout_marginTop="@dimen/small"-->
+            <!--                                android:textAlignment="viewStart"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/black"-->
+            <!--                                />-->
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:id="@+id/ic_edit_email"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            app:srcCompat="@drawable/ic_edit"-->
+            <!--                            android:padding="@dimen/small"-->
+            <!--                            android:background="?selectableItemBackgroundBorderless"-->
+            <!--                            />-->
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:orientation="horizontal"-->
+            <!--                        android:gravity="center"-->
+            <!--                        >-->
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:orientation="vertical"-->
+            <!--                            android:layout_marginVertical="@dimen/small"-->
+            <!--                            >-->
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:text="@string/hint_password"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/dusky_blue"-->
+            <!--                                />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="match_parent"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                tools:text="0123456789"-->
+            <!--                                android:inputType="textPassword"-->
+            <!--                                android:layout_marginTop="@dimen/small"-->
+            <!--                                android:textAlignment="viewStart"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/black"-->
+            <!--                                />-->
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:id="@+id/ic_password"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            app:srcCompat="@drawable/ic_edit"-->
+            <!--                            android:padding="@dimen/small"-->
+            <!--                            android:background="?selectableItemBackgroundBorderless"-->
+            <!--                            />-->
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_kinship"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.supervisor.kinship}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="ابن" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_kinship"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_home_location"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.supervisor.address}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="Msnoura" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_country"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.supervisor.country}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="Egypt" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_patient_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x_large"
+            android:paddingHorizontal="@dimen/medium"
+            android:text="@string/patient_data"
+            android:textAppearance="@style/TextAppearance.ACARE.Headline7"
+            app:layout_constraintBottom_toTopOf="@id/grou_patient_data"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/group_user_data" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/grou_patient_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:background="@drawable/bg_round_corner_small"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/language"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/txt_patient_data">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_full_name"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.patient.name}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="Ahmed " />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_pateint_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_status"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.patient.status}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="F" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_patient_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:orientation="horizontal"-->
+            <!--                        android:gravity="center"-->
+            <!--                        >-->
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:orientation="vertical"-->
+            <!--                            android:layout_marginVertical="@dimen/small"-->
+            <!--                            >-->
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:text="@string/hint_mobile"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/dusky_blue"-->
+            <!--                                />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="match_parent"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                tools:text="01012223232"-->
+            <!--                                android:layout_marginTop="@dimen/small"-->
+            <!--                                android:textAlignment="viewStart"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/black"-->
+            <!--                                />-->
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:id="@+id/ic_edit_patient_phone"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            app:srcCompat="@drawable/ic_edit"-->
+            <!--                            android:padding="@dimen/small"-->
+            <!--                            android:background="?selectableItemBackgroundBorderless"-->
+            <!--                            />-->
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:orientation="horizontal"-->
+            <!--                        android:gravity="center"-->
+            <!--                        >-->
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="0dp"-->
+            <!--                            android:layout_weight="1"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:orientation="vertical"-->
+            <!--                            android:layout_marginVertical="@dimen/small"-->
+            <!--                            >-->
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:text="@string/hint_password"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/dusky_blue"-->
+            <!--                                />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="match_parent"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                tools:text="0123456789"-->
+            <!--                                android:inputType="textPassword"-->
+            <!--                                android:layout_marginTop="@dimen/small"-->
+            <!--                                android:textAlignment="viewStart"-->
+            <!--                                android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"-->
+            <!--                                android:textColor="@color/black"-->
+            <!--                                />-->
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:id="@+id/ic_edit_patient_password"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            app:srcCompat="@drawable/ic_edit"-->
+            <!--                            android:padding="@dimen/small"-->
+            <!--                            android:background="?selectableItemBackgroundBorderless"-->
+            <!--                            />-->
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_age"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.patient.age}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="22" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_patient_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_home_location"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.patient.homeLocation}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="Msnoura" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_pateint_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hint_country"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/dusky_blue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small"
+                        android:textAlignment="viewStart"
+                        android:text="@{viewModel.patient.country}"
+                        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+                        android:textColor="@color/black"
+                        tools:text="Egypt" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ic_edit_patient_country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:padding="@dimen/small"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/language"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="@dimen/large"
+            android:background="@drawable/bg_round_corner_small"
+            android:gravity="center|start"
+            android:text="@string/language"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+            android:textColor="@color/dark_blue_grey"
+            app:drawableEndCompat="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toTopOf="@id/sign_out"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/grou_patient_data" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_out"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="@dimen/large"
+            android:layout_marginBottom="@dimen/xxx_large"
+            android:background="@drawable/bg_round_corner_small"
+            android:gravity="center|start"
+            android:text="@string/sign_out"
+            android:textAlignment="gravity"
+            android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+            android:textColor="@color/dark_blue_grey"
+            app:drawableEndCompat="@drawable/ic_arrow_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/language" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/large" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/large" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

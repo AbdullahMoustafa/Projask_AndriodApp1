@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name" translatable="false">Supervisor</string>
+
+    <!-- Auth -->
+    <string name="sign_in">Sign in</string>
+    <string name="hint_email_address">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_full_name">Full name</string>
+    <string name="hint_mobile">Phone number</string>
+    <string name="hint_home_location">Home location</string>
+    <string name="hint_country">Country</string>
+    <string name="hint_kinship">Kinship</string>
+    <string name="forget_your_password">Forget your password?</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="new_user">New User</string>
+    <string name="add_personal_photo">Add a personal photo</string>
+    <string name="desc_add_personal_photo">(Used to let the patient recognize you)</string>
+    <string name="register">Register</string>
+    <string name="have_account">Have an account?</string>
+    <string name="do_not_have_account">Don\'t have an account?</string>
+    <string name="patient_data">Patient data</string>
+    <string name="hint_status">Status</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_status_case" translatable="false">F / E / M / L</string>
+    <string name="helper_status" translatable="false">F-irst / E-arly / M-iddle / L-ate</string>
+    <string name="desc_auth_patient">Used to log in to the patient copy</string>
+    <string name="save_data">Save data</string>
+    <string name="language_desc_login" translatable="false">English عربي ...</string>
+    <string name="status_single">Single</string>
+    <string name="status_married">Married</string>
+
+    <!-- Tasks -->
+    <string name="main">Main</string>
+    <string name="welcome">Welcome, </string>
+    <string name="add_task">Add task</string>
+    <string name="available_tasks">Available tasks</string>
+    <string name="current">Current</string>
+    <string name="ended">Ended</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+    <string name="day">Day</string>
+    <string name="hour">Hour</string>
+    <string name="choose_color_task">Choose a color for the task</string>
+    <string name="add">Add</string>
+
+    <!-- Profile -->
+    <string name="my_account">My account</string>
+    <string name="desc_near_you">Sending a notification to the patient to get to know you</string>
+    <string name="near_you">Near you</string>
+    <string name="last_place">Last place</string>
+    <string name="your_data">Your data</string>
+    <string name="language">Language</string>
+    <string name="english" translatable="false">English</string>
+    <string name="arabic" translatable="false">العربية</string>
+    <string name="sign_out">Sign out</string>
+    <string name="choose_language">Choose language</string>
+
+
+    <!-- Error Messages -->
+    <string name="error">Error</string>
+    <string name="error_email">Enter correct email</string>
+    <string name="error_password">Password must be > 8</string>
+    <string name="error_name">Enter valid name</string>
+    <string name="error_phone">Enter valid phone number</string>
+    <string name="error_valid_text">Enter valid text</string>
+    <string name="error_user_used">This User is used</string>
+    <string name="error_connection">Check Connection</string>
+
+    <!-- Common -->
+    <string name="success">Success</string>
+    <string name="choose">Choose</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="try_again">Try again</string>
+    <string name="apply">Apply</string>
+</resources>

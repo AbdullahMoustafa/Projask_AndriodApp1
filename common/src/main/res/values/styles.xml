@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ################## Widgets ################### -->
+    <style name="Widget.ACARE.TextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/tajawal_regular</item>
+        <item name="fontFamily">@font/tajawal_regular</item>
+    </style>
+
+    <style name="Widget.ACARE.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ACARE.TextInputEditText.OutlinedBox</item>
+        <item name="boxStrokeColor">@color/dusky_blue</item>
+        <item name="hintEnabled">false</item>
+        <item name="endIconTint">@color/dusky_blue</item>
+        <item name="iconTint">@color/dusky_blue</item>
+        <item name="passwordToggleTint">@color/dusky_blue</item>
+    </style>
+
+    <style name="Widget.ACARE.TextInputLayout.OutlinedBox.ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ACARE.AutoCompleteTextView.OutlinedBox</item>
+        <item name="boxStrokeColor">@color/dusky_blue</item>
+        <item name="hintEnabled">false</item>
+        <item name="endIconTint">@color/dusky_blue</item>
+        <item name="iconTint">@color/dusky_blue</item>
+        <item name="passwordToggleTint">@color/dusky_blue</item>
+    </style>
+
+    <style name="Widget.ACARE.TextInputEditText.OutlinedBox" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:paddingTop">@dimen/medium</item>
+        <item name="android:paddingBottom">@dimen/medium</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="Widget.ACARE.AutoCompleteTextView.OutlinedBox" parent="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+        <item name="android:paddingTop">@dimen/medium</item>
+        <item name="android:paddingBottom">@dimen/medium</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+
+    <!-- ################## TextAppearance ################### -->
+
+    <style name="TextAppearance.ACARE.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:fontFamily">@font/tajawal_extra_bold</item>
+        <item name="fontFamily">@font/tajawal_extra_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.ACARE.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/tajawal_bold</item>
+        <item name="fontFamily">@font/tajawal_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.ACARE.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:fontFamily">@font/tajawal_regular</item>
+        <item name="fontFamily">@font/tajawal_regular</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+    <style name="TextAppearance.ACARE.Headline7" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/tajawal_medium</item>
+        <item name="fontFamily">@font/tajawal_medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!-- ################## ThemeOverlay ################### -->
+    <style name="ThemeOverlay.ACARE.TextInputEditText.OutlinedBox" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="editTextStyle">@style/Widget.ACARE.TextInputEditText.OutlinedBox</item>
+    </style>
+
+    <style name="ThemeOverlay.ACARE.AutoCompleteTextView.OutlinedBox" parent="ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+        <item name="autoCompleteTextViewStyle">@style/Widget.ACARE.AutoCompleteTextView.OutlinedBox</item>
+    </style>
+
+
+    <!-- ################## ShapeAppearanceOverlay ################### -->
+    <style name="ShapeAppearanceOverlay.ACARE.Image.Circle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+    <style name="Theme.ACARE.DialogAnimation" parent="">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="Theme.ACARE.Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/Theme.ACARE.DialogAnimation</item>
+    </style>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "311177257470",
+    "project_id": "acare-c88d4",
+    "storage_bucket": "acare-c88d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311177257470:android:5fef093deb665cf00fa0af",
+        "android_client_info": {
+          "package_name": "com.zedan.acare.supervisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311177257470-341s9g852fi6n8mp9jkp4ad0pngdb3ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCay7HAh-IJTH1VPwdT-jumUvGm4xv-7DM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311177257470-341s9g852fi6n8mp9jkp4ad0pngdb3ro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

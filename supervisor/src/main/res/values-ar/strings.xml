@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Auth -->
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="hint_email_address">البريد الالكتروني</string>
+    <string name="hint_password">الرقم السري</string>
+    <string name="hint_full_name">الاسم بالكامل</string>
+    <string name="hint_mobile">رقم الهاتف</string>
+    <string name="hint_home_location">العنوان</string>
+    <string name="hint_country">المحافظه</string>
+    <string name="hint_kinship">صله القرابه</string>
+    <string name="forget_your_password">نسيت كلمه السر؟</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="sign_up">تسجيل</string>
+    <string name="new_user">مستخدم جديد</string>
+    <string name="add_personal_photo">أضف صوره شخصيه</string>
+    <string name="desc_add_personal_photo">(تستخدم ليتعرف المريض عليك)</string>
+    <string name="register">تسجيل</string>
+    <string name="have_account">تمتلك حساب؟</string>
+    <string name="do_not_have_account">لاتمتلك حساب؟</string>
+    <string name="patient_data">بيانات المريض</string>
+    <string name="hint_status">الحاله</string>
+    <string name="hint_age">العمر</string>
+    <string name="desc_auth_patient">يستخدم لتسجيل الدخول في نسخة المريض</string>
+    <string name="save_data">حفظ البيانات</string>
+    <string name="status_single">أعزب</string>
+    <string name="status_married">متزوج</string>
+
+    <!-- Tasks -->
+    <string name="main">الرئيسيه</string>
+    <string name="welcome">أهلا ، </string>
+    <string name="add_task">إضافه مهمه</string>
+    <string name="available_tasks">المهام المتاحه</string>
+    <string name="current">الحاليه</string>
+    <string name="ended">المنتهية</string>
+    <string name="title">العنوان</string>
+    <string name="description">الوصف</string>
+    <string name="start_time">وقت البدء</string>
+    <string name="end_time">وقت الانتهاء</string>
+    <string name="day">يوم</string>
+    <string name="hour">ساعة</string>
+    <string name="choose_color_task">اختر لون للمهمة</string>
+    <string name="add">اضافة</string>
+
+    <!-- Profile -->
+    <string name="my_account">حسابى</string>
+    <string name="desc_near_you">ارسال اشعار للمريض ليتعرف عليك</string>
+    <string name="near_you">بالقرب منك</string>
+    <string name="last_place">اخر مكان</string>
+    <string name="your_data">بياناتك</string>
+    <string name="language">اللغه</string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="choose_language">إختر اللغه</string>
+
+    <!-- Error Messages -->
+    <string name="error">خطأ</string>
+    <string name="error_email">أدخل الايميل صحيح</string>
+    <string name="error_password">يجب ان يكون اكبر من ٨</string>
+    <string name="error_name">أدخل اسم صحيح</string>
+    <string name="error_phone">أدخل رقم هاتف صحيح</string>
+    <string name="error_valid_text">أدخل بيانات صحيحه</string>
+    <string name="error_user_used">المستخدم موجود من قبل</string>
+    <string name="error_connection">تحقق من الانترنت</string>
+
+    <!-- Common -->
+    <string name="success">نجح</string>
+    <string name="choose">إختر</string>
+    <string name="gallery">المعرض</string>
+    <string name="camera">الكاميرا</string>
+    <string name="try_again">إعاده المحاوله</string>
+    <string name="apply">تأكيد</string>
+
+</resources>
