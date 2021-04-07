@@ -9,6 +9,12 @@ import androidx.recyclerview.widget.DiffUtil;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 import com.zedan.acare.supervisor.domain.Param;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -29,6 +35,8 @@ public final class AddTaskParam implements Param {
     private final Integer taskColor;
     private final String title;
 
+    private final String day;
+
     public AddTaskParam(){
         this("", "", "", "", "", "", "", "", -1);
     }
@@ -43,6 +51,19 @@ public final class AddTaskParam implements Param {
         this.endTimeDate = endTimeDate;
         this.endTimeHour = endTimeHour;
         this.taskColor = taskColor;
+        String day;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        try {
+            Date d = format.parse(startTimeDate);
+            if (d == null)
+                throw new ParseException("date is Null.", 1);
+            day = new SimpleDateFormat("EEEE", Locale.getDefault())
+                    .format(d);
+        } catch (ParseException e){
+            e.printStackTrace();
+            day = "";
+        }
+        this.day = day;
     }
 
 
@@ -83,7 +104,7 @@ public final class AddTaskParam implements Param {
     }
 
     public final String getDayWithTime(){
-        return "";
+        return day + "  " + startTimeHour;
     }
 
     @Exclude
