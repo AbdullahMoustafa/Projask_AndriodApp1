@@ -3,6 +3,8 @@ package com.zedan.acare.supervisor.di;
 import android.content.Context;
 
 import com.zedan.acare.common.local.LocalSharedPreference;
+import com.zedan.acare.supervisor.BuildConfig;
+
 import javax.inject.Singleton;
 
 import dagger.Module;

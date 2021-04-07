@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -20,7 +21,7 @@ public final class RegisterPatientUseCase extends UseCase<RegisterPatientParam, 
     }
 
     @Override
-    protected Flowable<RegisterPatientResult> runnable(RegisterPatientParam param) {
+    protected Observable<RegisterPatientResult> runnable(RegisterPatientParam param) {
         return authRepository.registerPatient(param)
                 .startWithItem(RegisterPatientResult.Loading.LOADING)
                 .onErrorReturn(RegisterPatientResult.Error.Exception::new)

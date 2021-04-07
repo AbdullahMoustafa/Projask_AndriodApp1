@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 @Singleton
@@ -19,7 +20,7 @@ public class HasFillPatientUseCase extends UseCase<None, FillPatientResult> {
     }
 
     @Override
-    protected Flowable<FillPatientResult> runnable(None param) {
+    protected Observable<FillPatientResult> runnable(None param) {
         return repository.hasFillPatient()
                 .startWithItem(FillPatientResult.Loading.LOADING)
                 .onErrorReturn(FillPatientResult.Error::new)

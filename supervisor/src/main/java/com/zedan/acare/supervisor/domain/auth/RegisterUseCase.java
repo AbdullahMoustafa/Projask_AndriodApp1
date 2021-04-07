@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -22,7 +23,7 @@ public final class RegisterUseCase extends UseCase<RegisterParam, RegisterResult
     }
 
     @Override
-    protected Flowable<RegisterResult> runnable(RegisterParam param) {
+    protected Observable<RegisterResult> runnable(RegisterParam param) {
         return repository.register(param)
                 .startWithItem(RegisterResult.Loading.LOADING)
                 .onErrorReturn(RegisterResult.Error.Exception::new)

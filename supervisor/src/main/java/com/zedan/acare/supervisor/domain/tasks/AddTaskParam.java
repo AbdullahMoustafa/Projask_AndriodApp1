@@ -2,11 +2,16 @@ package com.zedan.acare.supervisor.domain.tasks;
 
 import android.util.ArrayMap;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.FrameMetricsAggregator;
+import androidx.recyclerview.widget.DiffUtil;
+
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 import com.zedan.acare.supervisor.domain.Param;
 import java.util.Map;
+import java.util.Objects;
+
 import kotlin.Metadata;
 import kotlin.TuplesKt;
 import kotlin.collections.MapsKt;
@@ -24,20 +29,20 @@ public final class AddTaskParam implements Param {
     private final Integer taskColor;
     private final String title;
 
-    public AddTaskParam() {
-        this(null, null, null, null, null, null, null, null, null);
+    public AddTaskParam(){
+        this("", "", "", "", "", "", "", "", -1);
     }
 
-    public AddTaskParam(String title2, String description2, String startTime2, String endTime2, String startTimeDate2, String startTimeHour2, String endTimeDate2, String endTimeHour2, Integer taskColor2) {
-        this.title = title2;
-        this.description = description2;
-        this.startTime = startTime2;
-        this.endTime = endTime2;
-        this.startTimeDate = startTimeDate2;
-        this.startTimeHour = startTimeHour2;
-        this.endTimeDate = endTimeDate2;
-        this.endTimeHour = endTimeHour2;
-        this.taskColor = taskColor2;
+    public AddTaskParam(String title, String description, String startTime, String endTime, String startTimeDate, String startTimeHour, String endTimeDate, String endTimeHour, Integer taskColor) {
+        this.title = title;
+        this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.startTimeDate = startTimeDate;
+        this.startTimeHour = startTimeHour;
+        this.endTimeDate = endTimeDate;
+        this.endTimeHour = endTimeHour;
+        this.taskColor = taskColor;
     }
 
 
@@ -77,6 +82,10 @@ public final class AddTaskParam implements Param {
         return this.taskColor;
     }
 
+    public final String getDayWithTime(){
+        return "";
+    }
+
     @Exclude
     public final Map<String, Object> toMap() {
         Map<String, Object> map = new ArrayMap<>();
@@ -91,4 +100,53 @@ public final class AddTaskParam implements Param {
         map.put("taskColor", taskColor);
         return map;
     }
+
+    @Override
+    public String toString() {
+        return "AddTaskParam{" +
+                "description='" + description + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", endTimeDate='" + endTimeDate + '\'' +
+                ", endTimeHour='" + endTimeHour + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", startTimeDate='" + startTimeDate + '\'' +
+                ", startTimeHour='" + startTimeHour + '\'' +
+                ", taskColor=" + taskColor +
+                ", title='" + title + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AddTaskParam)) return false;
+        AddTaskParam that = (AddTaskParam) o;
+        return Objects.equals(getDescription(), that.getDescription()) &&
+                Objects.equals(getEndTime(), that.getEndTime()) &&
+                Objects.equals(getEndTimeDate(), that.getEndTimeDate()) &&
+                Objects.equals(getEndTimeHour(), that.getEndTimeHour()) &&
+                Objects.equals(getStartTime(), that.getStartTime()) &&
+                Objects.equals(getStartTimeDate(), that.getStartTimeDate()) &&
+                Objects.equals(getStartTimeHour(), that.getStartTimeHour()) &&
+                Objects.equals(getTaskColor(), that.getTaskColor()) &&
+                Objects.equals(getTitle(), that.getTitle());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDescription(), getEndTime(), getEndTimeDate(), getEndTimeHour(), getStartTime(), getStartTimeDate(), getStartTimeHour(), getTaskColor(), getTitle());
+    }
+
+    public static final DiffUtil.ItemCallback<AddTaskParam> DIFFUtil = new DiffUtil.ItemCallback<AddTaskParam>(){
+
+        @Override
+        public boolean areItemsTheSame(@NonNull AddTaskParam oldItem, @NonNull AddTaskParam newItem) {
+            return oldItem == newItem;
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull AddTaskParam oldItem, @NonNull AddTaskParam newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 }

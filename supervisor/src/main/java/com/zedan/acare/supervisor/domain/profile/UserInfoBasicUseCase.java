@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.jvm.internal.Intrinsics;
@@ -16,13 +17,12 @@ public final class UserInfoBasicUseCase extends UseCase<None, UserDataBasic> {
     private final ProfileRepository repository;
 
     @Inject
-    public UserInfoBasicUseCase(ProfileRepository repository2) {
-        Intrinsics.checkNotNullParameter(repository2, "repository");
-        this.repository = repository2;
+    public UserInfoBasicUseCase(ProfileRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    protected Flowable<UserDataBasic> runnable(None param) {
+    protected Observable<UserDataBasic> runnable(None param) {
         return repository.getBasicUserInfo();
     }
 }

@@ -18,28 +18,33 @@ public final class RegisterPatientParam implements Param {
     private final String statusType;
     private String supervisorKey;
 
-
-    public RegisterPatientParam(String name2, String mobile2, String password2, String age2, String homeLocation2, String status2, String statusType2, String country2) {
-        this.name = name2;
-        this.mobile = mobile2;
-        this.password = password2;
-        this.age = age2;
-        this.homeLocation = homeLocation2;
-        this.status = status2;
-        this.statusType = statusType2;
-        this.country = country2;
+    public RegisterPatientParam(){
+        this("", "", "", "", "", "", "", "", "");
     }
 
-    public RegisterPatientParam(String name2, String mobile2, String password2, String age2, String homeLocation2, String status2, String statusType2, String country2, String supervisorKey2) {
-        this.name = name2;
-        this.mobile = mobile2;
-        this.password = password2;
-        this.age = age2;
-        this.homeLocation = homeLocation2;
-        this.status = status2;
-        this.statusType = statusType2;
-        this.country = country2;
-        this.supervisorKey = supervisorKey2;
+
+    public RegisterPatientParam(String name, String mobile, String password, String age, String homeLocation, String status, String statusType, String country) {
+        this.name = name;
+        this.mobile = mobile;
+        this.password = password;
+        this.age = age;
+        this.homeLocation = homeLocation;
+        this.status = status;
+        this.statusType = statusType;
+        this.country = country;
+        this.supervisorKey = "";
+    }
+
+    public RegisterPatientParam(String name, String mobile, String password, String age, String homeLocation, String status, String statusType, String country, String supervisorKey) {
+        this.name = name;
+        this.mobile = mobile;
+        this.password = password;
+        this.age = age;
+        this.homeLocation = homeLocation;
+        this.status = status;
+        this.statusType = statusType;
+        this.country = country;
+        this.supervisorKey = supervisorKey;
     }
 
 

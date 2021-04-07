@@ -2,9 +2,9 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="listener"
-            type="com.zedan.acare.supervisor.utils.ToastListener" />
+<!--        <variable-->
+<!--            name="listener"-->
+<!--            type="com.zedan.acare.supervisor.utils.ToastListener" />-->
 
         <variable
             name="message"

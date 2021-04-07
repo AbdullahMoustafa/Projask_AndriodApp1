@@ -11,6 +11,7 @@ import com.github.razir.progressbutton.ProgressParams;
 public final class ButtonBindingAdapter {
 
     public static void showWhiteProgress(Button button){
+        button.setClickable(false);
         ProgressParams params = new ProgressParams();
         params.setProgressColor(Color.WHITE);
         ProgressButtonUtils
@@ -21,6 +22,7 @@ public final class ButtonBindingAdapter {
     }
 
     public static void hideProgress(Button button, @StringRes int text){
+        button.setClickable(true);
         ProgressButtonUtils.hideProgress(button, text);
     }
 }

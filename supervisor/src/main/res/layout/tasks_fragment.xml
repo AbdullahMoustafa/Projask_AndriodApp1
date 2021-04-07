@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="viewModel"
             type="com.zedan.acare.supervisor.ui.tasks.TasksViewModel" />
@@ -79,7 +81,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ic_user"
             app:layout_constraintStart_toEndOf="@id/txt_ava_tasks"
-            app:layout_constraintBottom_toTopOf="@id/ic_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0"
             app:layout_constraintVertical_chainStyle="packed"
             />
@@ -105,10 +107,44 @@
             android:layout_height="0dp"
             app:srcCompat="@drawable/ic_empty"
             android:scaleType="centerInside"
+            android:visibility="@{(viewModel.taskData() != null &amp;&amp; viewModel.taskData().empty == true) ? View.VISIBLE : View.GONE }"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add_task_btn"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:visibility="@{(viewModel.taskData() != null &amp;&amp; viewModel.taskData().empty == false) ? View.VISIBLE : View.GONE }"
+            android:layout_marginHorizontal="@dimen/large"
+            tools:listitem="@layout/task_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_task_btn"
+            app:layout_constraintBottom_toTopOf="@id/recycler_tasks"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_tasks"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/large"
+            android:clipToPadding="false"
+            android:visibility="@{(viewModel.taskData() != null &amp;&amp; viewModel.taskData().empty == false) ? View.VISIBLE : View.GONE }"
+            android:paddingTop="@dimen/medium"
+            android:paddingBottom="@dimen/x_large"
+            tools:listitem="@layout/task_item_raw"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_category"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
 

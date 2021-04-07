@@ -1,8 +1,5 @@
 package com.zedan.acare.supervisor.bindingAdapter;
 
-import android.view.View;
-import android.widget.AdapterView;
-
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;

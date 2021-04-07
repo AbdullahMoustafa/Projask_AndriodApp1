@@ -1,9 +1,10 @@
 package com.zedan.acare.supervisor.domain.home;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 
 public abstract class HomeRepository {
 
-    abstract Flowable<FillPatientResult> hasFillPatient();
+    public abstract Observable<FillPatientResult> hasFillPatient();
 
 }

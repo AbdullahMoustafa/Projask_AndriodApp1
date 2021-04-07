@@ -21,20 +21,20 @@ public final class RegisterParam implements Param, Result {
     private String profileImage;
 
     public RegisterParam() {
-        this(null, null, null, null, null, null, null, null, false, null);
+        this("", "", "", "", "", "", "", "", false, "");
     }
 
-    public RegisterParam(String fullName2, String phone2, String email2, String password2, String kinship2, String address2, String country2, String profileImage2, boolean enterPatientData2, String patients2) {
-        this.fullName = fullName2;
-        this.phone = phone2;
-        this.email = email2;
-        this.password = password2;
-        this.kinship = kinship2;
-        this.address = address2;
-        this.country = country2;
-        this.profileImage = profileImage2;
-        this.enterPatientData = enterPatientData2;
-        this.patients = patients2;
+    public RegisterParam(String fullName, String phone, String email, String password, String kinship, String address, String country, String profileImage, boolean enterPatientData, String patients) {
+        this.fullName = fullName;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.kinship = kinship;
+        this.address = address;
+        this.country = country;
+        this.profileImage = profileImage;
+        this.enterPatientData = enterPatientData;
+        this.patients = patients;
     }
 
     public final String getFullName() {

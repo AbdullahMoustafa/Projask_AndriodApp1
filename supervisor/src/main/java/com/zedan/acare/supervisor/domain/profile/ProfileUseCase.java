@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -21,7 +22,7 @@ public final class ProfileUseCase extends UseCase<ProfileParam, ProfileResult> {
     }
 
     @Override
-    protected Flowable<ProfileResult> runnable(ProfileParam param) {
+    protected Observable<ProfileResult> runnable(ProfileParam param) {
         return repository.getUserInfo(param)
                 .startWithItem(ProfileResult.Loading.LOADING)
                 .onErrorReturn(ProfileResult.Error::new)

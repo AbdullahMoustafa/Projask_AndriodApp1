@@ -44,12 +44,12 @@ public final class ErrorView extends FrameLayout {
     }
 
 
-    public final void error(Exception throwable, RetryListener retry) {
+    public final void error(Throwable throwable, RetryListener retry) {
         setRetry(retry);
         setStatus(throwable);
     }
 
-    public final void setStatus(@Nullable Exception throwable) {
+    public final void setStatus(@Nullable Throwable throwable) {
         if (throwable == null)
             setVisibility(View.GONE);
         else {
@@ -62,7 +62,7 @@ public final class ErrorView extends FrameLayout {
         this.retryBtn.setOnClickListener(v -> retry.onRetry());
     }
 
-    private void setTextError(Exception throwable) {
+    private void setTextError(Throwable throwable) {
         if (throwable instanceof FirebaseNetworkException) {
             this.imageError.setImageResource(R.drawable.ic_no_connection);
             this.messageText.setText(getContext().getString(R.string.error_connection));
@@ -74,7 +74,4 @@ public final class ErrorView extends FrameLayout {
         this.imageError.setImageResource(R.drawable.ic_no_connection);
     }
 
-    interface RetryListener{
-        public void onRetry();
-    }
 }

@@ -11,7 +11,7 @@ public abstract class AddTaskResult implements Result {
     }
 
     public static final class None extends AddTaskResult {
-        public static final None INSTANCE = new None();
+        public static final None NONE = new None();
 
         private None() {
             super();
@@ -53,15 +53,15 @@ public abstract class AddTaskResult implements Result {
                 this(false, false, false, false, false, false, false);
             }
 
-            public InputError(boolean isNotTitle2, boolean isNotDesc2, boolean isNotStartDate2, boolean isNotStartHour2, boolean isNotEndDate2, boolean isNotEndHour2, boolean isNotColor2) {
+            public InputError(boolean isNotTitle, boolean isNotDesc, boolean isNotStartDate, boolean isNotStartHour, boolean isNotEndDate, boolean isNotEndHour, boolean isNotColor) {
                 super();
-                this.isNotTitle = isNotTitle2;
-                this.isNotDesc = isNotDesc2;
-                this.isNotStartDate = isNotStartDate2;
-                this.isNotStartHour = isNotStartHour2;
-                this.isNotEndDate = isNotEndDate2;
-                this.isNotEndHour = isNotEndHour2;
-                this.isNotColor = isNotColor2;
+                this.isNotTitle = isNotTitle;
+                this.isNotDesc = isNotDesc;
+                this.isNotStartDate = isNotStartDate;
+                this.isNotStartHour = isNotStartHour;
+                this.isNotEndDate = isNotEndDate;
+                this.isNotEndHour = isNotEndHour;
+                this.isNotColor = isNotColor;
             }
 
             public final boolean isNotTitle() {
@@ -98,9 +98,9 @@ public abstract class AddTaskResult implements Result {
             private final Throwable throwable;
 
 
-            public Exception(Throwable throwable2) {
+            public Exception(Throwable throwable) {
                 super();
-                this.throwable = throwable2;
+                this.throwable = throwable;
             }
 
             public final Throwable getThrowable() {

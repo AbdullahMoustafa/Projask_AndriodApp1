@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import kotlin.Metadata;
@@ -21,7 +22,7 @@ public final class LoginUseCase extends UseCase<LoginParam, LoginStatus> {
     }
 
     @Override
-    protected Flowable<LoginStatus> runnable(LoginParam param) {
+    protected Observable<LoginStatus> runnable(LoginParam param) {
         return this.repository.signIn(param)
                 .startWithItem(LoginStatus.Loading.LOADING)
                 .onErrorReturn(LoginStatus.Error.Exception::new)

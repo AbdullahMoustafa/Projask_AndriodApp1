@@ -7,9 +7,9 @@ public class SelectEntity {
     @NonNull
     private final String name;
 
-    public SelectEntity(long id2, @NonNull String name2) {
-        this.id = id2;
-        this.name = name2;
+    public SelectEntity(long id, @NonNull String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public long getId() {
