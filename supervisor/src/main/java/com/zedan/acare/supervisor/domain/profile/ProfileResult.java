@@ -30,16 +30,20 @@ public abstract class ProfileResult implements Result {
     public static final class Success extends ProfileResult {
         private final RegisterPatientParam patient;
         private final RegisterParam supervisor;
+        private final String patientPath;
+        private final String supervisorPath;
 
         public Success() {
-            this(null, null);
+            this(null, null, null, null);
         }
 
 
-        public Success(RegisterParam supervisor2, RegisterPatientParam patient2) {
+        public Success(RegisterParam supervisor2, RegisterPatientParam patient2, String supervisorPath, String patientPath) {
             super();
             this.supervisor = supervisor2;
             this.patient = patient2;
+            this.supervisorPath = supervisorPath;
+            this.patientPath = patientPath;
         }
 
         public final RegisterParam getSupervisor() {
@@ -48,6 +52,14 @@ public abstract class ProfileResult implements Result {
 
         public final RegisterPatientParam getPatient() {
             return this.patient;
+        }
+
+        public String getPatientPath() {
+            return patientPath;
+        }
+
+        public String getSupervisorPath() {
+            return supervisorPath;
         }
     }
 

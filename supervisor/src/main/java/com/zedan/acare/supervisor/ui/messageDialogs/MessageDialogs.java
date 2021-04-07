@@ -1,10 +1,9 @@
 package com.zedan.acare.supervisor.ui.messageDialogs;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.navigation.Navigation;
@@ -36,18 +35,12 @@ public final class MessageDialogs extends DialogFragment {
 
     public void onStart() {
         super.onStart();
-        if (this.getDialog() != null) {
-            Window window = this.getDialog().getWindow();
-            if (window != null) {
-                window.setBackgroundDrawableResource(android.R.color.transparent);
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = requireActivity().getWindowManager();
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            int width = displayMetrics.widthPixels - 80;
-            if (window != null) {
-                window.setLayout(width, -2);
-            }
+        if (getDialog() != null && getDialog().getWindow() != null){
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            int width = (int) (((double) requireActivity().getResources()
+                    .getDisplayMetrics().widthPixels) * 0.9d);
+            getDialog().getWindow()
+                    .setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
     }
 }

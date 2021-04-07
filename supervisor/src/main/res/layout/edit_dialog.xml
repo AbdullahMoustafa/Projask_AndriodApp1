@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/xx_large"
+    android:paddingHorizontal="@dimen/medium"
+    android:background="@drawable/bg_radius_soft"
+    android:backgroundTint="@color/white"
+    tools:context=".ui.profile.edit.EditDialog">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/hint_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/hint_mobile"
+        android:textAppearance="@style/TextAppearance.ACARE.Subtitle1"
+        android:textColor="@color/dusky_blue" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_editable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium"
+        style="@style/Widget.ACARE.TextInputLayout.OutlinedBox"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xx_large"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/save_data"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

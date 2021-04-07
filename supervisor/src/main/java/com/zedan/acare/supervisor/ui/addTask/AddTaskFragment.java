@@ -197,8 +197,8 @@ public final class AddTaskFragment extends Fragment {
     }
 
     private void onSuccess() {
-        // TODO: Hide Loading Dialog ad show message success nd back
-
+        Navigation.findNavController(binding.getRoot())
+                .popBackStack();
     }
 
     private void onError(AddTaskResult.Error error) {

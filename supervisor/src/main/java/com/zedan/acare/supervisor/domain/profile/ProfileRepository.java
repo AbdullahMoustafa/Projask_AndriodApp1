@@ -7,6 +7,10 @@ public abstract class ProfileRepository {
 
     public abstract Observable<UserDataBasic> getBasicUserInfo();
 
-    public abstract Observable<ProfileResult> getUserInfo(ProfileParam param);
+    public abstract Observable<ProfileResult> getUserInfo();
+
+    public abstract Observable<EditInputResult> updateInput(EditInputParam param);
+
+    public abstract Observable<UploadImageStatus> updateImage(UploadImageParam param);
 
 }

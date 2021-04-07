@@ -41,6 +41,8 @@ dependencies {
     // Core
     implementation rootProject.ext.core.impl
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     testImplementation rootProject.ext.core.unit_test
     androidTestImplementation rootProject.ext.core.android_test
 

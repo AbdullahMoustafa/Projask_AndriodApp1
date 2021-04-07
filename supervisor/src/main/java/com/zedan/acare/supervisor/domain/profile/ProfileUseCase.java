@@ -1,5 +1,6 @@
 package com.zedan.acare.supervisor.domain.profile;
 
+import com.zedan.acare.supervisor.domain.None;
 import com.zedan.acare.supervisor.domain.UseCase;
 import com.zedan.acare.supervisor.domain.home.FillPatientResult;
 
@@ -13,7 +14,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 
 @Singleton
-public final class ProfileUseCase extends UseCase<ProfileParam, ProfileResult> {
+public final class ProfileUseCase extends UseCase<None, ProfileResult> {
     private final ProfileRepository repository;
 
     @Inject
@@ -22,8 +23,8 @@ public final class ProfileUseCase extends UseCase<ProfileParam, ProfileResult> {
     }
 
     @Override
-    protected Observable<ProfileResult> runnable(ProfileParam param) {
-        return repository.getUserInfo(param)
+    protected Observable<ProfileResult> runnable(None param) {
+        return repository.getUserInfo()
                 .startWithItem(ProfileResult.Loading.LOADING)
                 .onErrorReturn(ProfileResult.Error::new)
                 .subscribeOn(Schedulers.io());
